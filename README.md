@@ -58,7 +58,7 @@ Simply run `app.py` and StatGPT will:
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/StatGPT.git
+git clone https://github.com/Wongcheukwai/StatGPT.git
 cd StatGPT
 ```
 

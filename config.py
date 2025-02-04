@@ -28,7 +28,7 @@ PROCESSED_DATA_FOLDER = os.environ.get("PROCESSED_DATA_FOLDER", "./processed_dat
 
 REPORT_FOLDER = os.environ.get("REPORT_FOLDER", "./generated_data")
 # API key for accessing OpenAI services.
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "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")
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 
 # ------------------------------------------------------------------------------
 # Data Extraction Settings
