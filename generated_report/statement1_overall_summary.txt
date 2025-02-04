@@ -1,0 +1,18 @@
+### Key Financial Metrics
+- **Revenue Last Year:** $7,797,000
+- **Revenue Previous Year:** $7,701,000
+- **Net Income Last Year:** $529,000
+- **Net Income Previous Year:** $1,025,000
+- **Operating Expenses Last Year:** $7,268,000
+- **Operating Expenses Previous Year:** $6,676,000
+- **Cash Flow Last Year:** $3,093,000
+- **Cash Flow Previous Year:** $4,955,000
+
+### Notable Trends or Observations
+- **Revenue Growth:** There was a slight increase in revenue, rising by $96,000 from the previous year.
+- **Net Income Decline:** Net income decreased significantly by $496,000, indicating reduced profitability.
+- **Increased Operating Expenses:** Operating expenses rose by $592,000, which may have contributed to the decline in net income.
+- **Cash Flow Reduction:** Cash flow decreased by $1,862,000, suggesting potential liquidity challenges.
+
+### Narrative Summary
+The financial performance over the last year shows a modest increase in revenue but a notable decline in net income, primarily due to rising operating expenses. The significant reduction in cash flow could indicate potential liquidity issues that need addressing. The company should focus on managing expenses and improving operational efficiency to enhance profitability and cash flow stability.
