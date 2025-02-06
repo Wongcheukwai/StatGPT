@@ -1,0 +1,169 @@
+>> from langchain.vectorstores import Chroma
+
+with new imports of:
+
+>> from langchain_community.vectorstores import Chroma
+You can use the langchain cli to **automatically** upgrade many imports. Please see documentation here <https://python.langchain.com/docs/versions/v0_2/>
+  from langchain.vectorstores import Chroma
+2025-02-06 13:11:29,933 - INFO - Step 1: Extracting data from PDFs...
+2025-02-06 13:11:29,985 - INFO - Processing file: ./financial_statements/statement1.pdf
+2025-02-06 13:12:47,375 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-06 13:12:47,384 - INFO - Data saved locally: ./extracted_data/statement1.json
+2025-02-06 13:12:47,384 - INFO - Step 2: Preprocessing extracted data...
+2025-02-06 13:12:47,386 - INFO - Processed JSON saved: ./processed_data/statement1.json
+2025-02-06 13:12:47,386 - INFO - Step 3: Generating financial reports...
+2025-02-06 13:12:47,386 - INFO - Reports module initialized. RAG enabled: False
+2025-02-06 13:12:47,386 - INFO - Starting to process all financial reports...
+2025-02-06 13:12:47,387 - INFO - Processing file: ./processed_data/statement1.json
+2025-02-06 13:12:47,387 - INFO - Reading JSON file: ./processed_data/statement1.json
+2025-02-06 13:12:47,387 - INFO - Generating summary for financial statement: Statement of Comprehensive Income
+2025-02-06 13:12:47,387 - INFO - Generating summary for: Statement of Comprehensive Income
+2025-02-06 13:12:47,387 - INFO - Sending request to LLM for financial summary generation...
+2025-02-06 13:13:00,080 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-06 13:13:00,110 - INFO - Saving financial summary to file: ./generated_data/statement1_Statement_of_Comprehensive_Income_summary.txt
+2025-02-06 13:13:00,111 - INFO - Generating summary for financial statement: Statement of Financial Position
+2025-02-06 13:13:00,112 - INFO - Generating summary for: Statement of Financial Position
+2025-02-06 13:13:00,112 - INFO - Sending request to LLM for financial summary generation...
+2025-02-06 13:13:07,864 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-06 13:13:07,871 - INFO - Saving financial summary to file: ./generated_data/statement1_Statement_of_Financial_Position_summary.txt
+2025-02-06 13:13:07,874 - INFO - Generating summary for financial statement: Statement of Changes in Equity
+2025-02-06 13:13:07,875 - INFO - Generating summary for: Statement of Changes in Equity
+2025-02-06 13:13:07,875 - INFO - Sending request to LLM for financial summary generation...
+2025-02-06 13:13:17,428 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-06 13:13:17,435 - INFO - Saving financial summary to file: ./generated_data/statement1_Statement_of_Changes_in_Equity_summary.txt
+2025-02-06 13:13:17,441 - INFO - Generating summary for financial statement: Statement of Cash Flows
+2025-02-06 13:13:17,441 - INFO - Generating summary for: Statement of Cash Flows
+2025-02-06 13:13:17,442 - INFO - Sending request to LLM for financial summary generation...
+2025-02-06 13:13:33,811 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-06 13:13:33,814 - INFO - Saving financial summary to file: ./generated_data/statement1_Statement_of_Cash_Flows_summary.txt
+2025-02-06 13:13:33,815 - INFO - Extracting financial metrics from the JSON data.
+2025-02-06 13:13:33,817 - INFO - Sending request to LLM for financial metric extraction...
+2025-02-06 13:13:37,122 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-06 13:13:37,131 - INFO - Successfully extracted financial metrics.
+2025-02-06 13:13:37,131 - INFO - Saving extracted financial metrics to CSV: ./generated_data/statement1_financial_metrics.csv
+2025-02-06 13:13:37,132 - INFO - Financial metrics successfully saved to CSV.
+2025-02-06 13:13:37,132 - INFO - Generating overall financial summary.
+2025-02-06 13:13:37,132 - INFO - Generating summary for: Overall Financial Report
+2025-02-06 13:13:37,133 - INFO - Sending request to LLM for financial summary generation...
+2025-02-06 13:13:42,707 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-06 13:13:42,716 - INFO - Saving financial summary to file: ./generated_data/statement1_overall_summary.txt
+2025-02-06 13:13:42,718 - INFO - Finished processing all financial reports.
+2025-02-06 13:13:42,718 - INFO - Step 4: Evaluating generated summaries...
+2025-02-06 13:13:42,718 - INFO - SummaryEvaluator initialized.
+2025-02-06 13:13:42,719 - INFO - Starting evaluation process...
+2025-02-06 13:13:42,719 - INFO - Evaluating: ./generated_data/statement1_Statement_of_Changes_in_Equity_summary.txt
+2025-02-06 13:13:42,720 - INFO - Starting LLM-based evaluation...
+2025-02-06 13:13:42,721 - INFO - Sending request to LLM for evaluation...
+2025-02-06 13:13:46,147 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-06 13:13:46,150 - INFO - Evaluation completed.
+2025-02-06 13:13:46,150 - INFO - Evaluation for statement1_Statement_of_Changes_in_Equity_summary.txt:
+### Evaluation of the Generated Summary
+
+1. **Fluency: 9/10**
+   - The language used in the summary is clear, grammatically correct, and professional. The sentences are well-structured, and the terminology is appropriate for a financial context. There are no noticeable grammatical errors or awkward phrasing.
+
+2. **Coherence: 8/10**
+   - The summary logically flows from one point to the next, effectively connecting the key financial metrics with the observations and narrative. However, the transition between the sections could be slightly smoother to enhance the overall coherence.
+
+3. **Relevance: 10/10**
+   - The summary accurately reflects the key financial information and metrics from the reference statement. It correctly identifies the figures for Asset Revaluation Reserve, Retained Earnings, and Total Equity, and provides relevant observations about these metrics.
+
+4. **Conciseness: 9/10**
+   - The summary is brief yet comprehensive, covering all necessary details without unnecessary elaboration. It effectively communicates the essential information and insights derived from the financial statement.
+
+### Overall Evaluation
+The generated summary is of high quality, effectively capturing the key financial metrics and trends from the reference statement. It is well-written, logically structured, and provides a clear and concise overview of the company's financial position. The minor areas for improvement in coherence do not significantly detract from the overall quality. Overall, the summary is a strong representation of the financial statement.
+
+2025-02-06 13:13:46,150 - INFO - Evaluating: ./generated_data/statement1_Statement_of_Comprehensive_Income_summary.txt
+2025-02-06 13:13:46,155 - INFO - Starting LLM-based evaluation...
+2025-02-06 13:13:46,155 - INFO - Sending request to LLM for evaluation...
+2025-02-06 13:13:50,632 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-06 13:13:50,636 - INFO - Evaluation completed.
+2025-02-06 13:13:50,636 - INFO - Evaluation for statement1_Statement_of_Comprehensive_Income_summary.txt:
+1. **Fluency: 9/10**
+   - The language used in the summary is clear, grammatically correct, and professional. The sentences are well-structured, and the terminology is appropriate for a financial context. The only minor issue is the repetitive use of "increased" and "decreased," which could be varied for stylistic improvement.
+
+2. **Coherence: 9/10**
+   - The summary logically flows from one section to another, effectively connecting relevant points. The structure is consistent, starting with key financial metrics, followed by notable trends, and concluding with a narrative summary. Each section builds on the previous one, providing a comprehensive overview of the financial performance.
+
+3. **Relevance: 10/10**
+   - The summary accurately reflects the key financial information and metrics from the reference statement. It includes all significant changes in revenue and expenses, as well as the impact on surplus and comprehensive income. The summary also highlights the absence of gains from investment property revaluation, which is a critical point from the reference.
+
+4. **Conciseness: 8/10**
+   - The summary is brief yet comprehensive, covering all essential aspects of the financial statement without unnecessary details. However, the narrative summary could be slightly more concise by reducing redundancy, such as the repeated mention of the impact of legal and administration costs.
+
+**Overall Evaluation:**
+The generated summary is of high quality, effectively capturing the essential financial metrics and trends from the reference statement. It is well-written, logically organized, and provides a clear and accurate depiction of the financial performance. Minor improvements in stylistic variety and conciseness could enhance the overall presentation, but these do not significantly detract from the summary's effectiveness. Overall, it serves as a reliable and professional summary of the financial statement.
+
+2025-02-06 13:13:50,636 - INFO - Evaluating: ./generated_data/statement1_Statement_of_Financial_Position_summary.txt
+2025-02-06 13:13:50,638 - INFO - Starting LLM-based evaluation...
+2025-02-06 13:13:50,638 - INFO - Sending request to LLM for evaluation...
+2025-02-06 13:13:55,475 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-06 13:13:55,480 - INFO - Evaluation completed.
+2025-02-06 13:13:55,480 - INFO - Evaluation for statement1_Statement_of_Financial_Position_summary.txt:
+**Fluency: 9/10**
+
+The language used in the summary is clear, grammatically correct, and professional. The sentences are well-structured, and the terminology is appropriate for a financial context. There are no noticeable errors in grammar or syntax, making the summary easy to read and understand.
+
+**Coherence: 8/10**
+
+The summary logically flows and connects relevant points effectively. It starts with key financial metrics, followed by notable trends and a narrative summary. However, the transition between sections could be slightly smoother to enhance the overall coherence. The narrative summary effectively ties together the financial data with strategic insights.
+
+**Relevance: 9/10**
+
+The summary accurately reflects the key financial information and metrics from the reference statement. It highlights the significant changes in assets, liabilities, and equity, and provides context for these changes. The mention of the acquisition of land and buildings and the increase in borrowings aligns well with the reference data. However, the summary could have included more specific details about the components of current assets and liabilities for completeness.
+
+**Conciseness: 9/10**
+
+The summary is brief yet comprehensive, covering the essential financial metrics and trends without unnecessary details. It effectively condenses the information from the reference statement into a manageable length while maintaining the core insights. The narrative summary succinctly captures the strategic implications of the financial data.
+
+**Overall Evaluation:**
+
+The generated summary is of high quality, with strong fluency, relevance, and conciseness. It effectively communicates the key financial metrics and trends, providing a clear and professional overview of the financial statement. Minor improvements in coherence and the inclusion of more specific details could enhance the summary further. Overall, it serves as a well-rounded and informative summary of the financial statement.
+
+2025-02-06 13:13:55,480 - INFO - Evaluating: ./generated_data/statement1_Statement_of_Cash_Flows_summary.txt
+2025-02-06 13:13:55,481 - INFO - Starting LLM-based evaluation...
+2025-02-06 13:13:55,481 - INFO - Sending request to LLM for evaluation...
+2025-02-06 13:14:01,418 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-06 13:14:01,422 - INFO - Evaluation completed.
+2025-02-06 13:14:01,422 - INFO - Evaluation for statement1_Statement_of_Cash_Flows_summary.txt:
+### Evaluation of the Generated Summary
+
+1. **Fluency: 9/10**
+   - The language used in the summary is clear, grammatically correct, and professional. The sentences are well-structured, and the terminology is appropriate for a financial context. The only minor issue is the use of "Last Year" and "Previous Year" which could be more clearly defined as specific fiscal years for better clarity.
+
+2. **Coherence: 8/10**
+   - The summary logically flows from one section to another, effectively connecting the key points. The structure is consistent, with each financial activity clearly delineated. However, the transition between sections could be slightly improved to enhance the overall narrative flow, particularly in the "Notable Trends or Observations" section.
+
+3. **Relevance: 9/10**
+   - The summary accurately reflects the key financial information and metrics from the reference statement. It captures the essential figures and trends, such as the significant increase in cash used for investing activities and the substantial inflow from financing activities. The only discrepancy is the net cash from investing activities, which should be negative in the summary to match the reference.
+
+4. **Conciseness: 8/10**
+   - The summary is brief yet comprehensive, covering all major financial activities without unnecessary details. However, the "Short Narrative Summary" could be slightly more concise by focusing on the most critical insights and avoiding repetition of figures already mentioned in the "Key Financial Metrics" section.
+
+### Overall Evaluation
+The generated summary is of high quality, effectively capturing the essential financial metrics and trends from the reference statement. It is well-written, logically structured, and relevant, with only minor areas for improvement in coherence and conciseness. Overall, it provides a clear and professional overview of the financial statement.
+
+2025-02-06 13:14:01,422 - INFO - Evaluating: ./generated_data/statement1_overall_summary.txt
+2025-02-06 13:14:01,425 - INFO - Starting LLM-based evaluation...
+2025-02-06 13:14:01,425 - INFO - Sending request to LLM for evaluation...
+2025-02-06 13:14:05,873 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-06 13:14:05,876 - INFO - Evaluation completed.
+2025-02-06 13:14:05,876 - INFO - Evaluation for statement1_overall_summary.txt:
+1. **Fluency: 9/10**
+   - The language used in the summary is clear, grammatically correct, and professional. The sentences are well-structured, and the terminology is appropriate for a financial context. The only minor issue is the use of "saw" in "Revenue saw a modest increase," which could be more formally expressed.
+
+2. **Coherence: 8/10**
+   - The summary logically flows from key financial metrics to notable trends and a narrative summary. Each section builds on the previous one, providing a clear picture of the financial situation. However, the transition between the sections could be slightly smoother to enhance the overall coherence.
+
+3. **Relevance: 7/10**
+   - The summary captures the key financial metrics such as revenue, net income, operating expenses, and cash flow. However, it misses some details from the reference statement, such as the breakdown of revenue sources and specific expense categories. Additionally, the summary does not mention the significant changes in assets and liabilities, which are crucial for a comprehensive financial analysis.
+
+4. **Conciseness: 8/10**
+   - The summary is brief and avoids unnecessary details, focusing on the most critical financial changes. However, it could include a bit more information on the reasons behind the changes in cash flow and net income, such as the impact of increased legal costs or the purchase of land and buildings, to provide a more comprehensive overview without becoming verbose.
+
+**Overall Evaluation:**
+The generated summary is well-written and provides a clear and professional overview of the financial statement. It effectively highlights the key financial metrics and trends, although it could benefit from including more detailed information on the underlying causes of financial changes and a more comprehensive view of the financial position. Overall, the summary is of good quality but could be improved by addressing the noted gaps in relevance and coherence.
+
+2025-02-06 13:14:05,877 - INFO - Evaluation process completed.
+

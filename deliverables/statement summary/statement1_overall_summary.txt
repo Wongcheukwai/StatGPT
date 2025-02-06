@@ -1,0 +1,14 @@
+### Key Financial Metrics
+- **Revenue**: Increased from $7,701,000 to $7,797,000.
+- **Net Income**: Decreased from $1,025,000 to $529,000.
+- **Operating Expenses**: Increased from $6,676,000 to $7,268,000.
+- **Cash Flow**: Decreased from $4,955,000 to $3,093,000.
+
+### Notable Trends or Observations
+- Revenue saw a modest increase of $96,000 year-over-year.
+- Net income experienced a significant decline, dropping by $496,000.
+- Operating expenses rose by $592,000, indicating higher costs.
+- Cash flow decreased substantially by $1,862,000, suggesting reduced liquidity.
+
+### Narrative Summary
+The financial performance over the past year shows a slight increase in revenue but is overshadowed by a significant drop in net income, primarily due to rising operating expenses. The substantial decrease in cash flow highlights potential challenges in maintaining liquidity. The company may need to address cost management and explore strategies to enhance profitability and cash flow stability.

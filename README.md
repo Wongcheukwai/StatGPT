@@ -37,13 +37,22 @@ StatGPT/
 │   ├── data_extraction.py    # PDF to structured data conversion
 │   ├── data_preprocessing.py # Data cleaning & normalization
 │   ├── generation.py         # Report & summary generation
-│   ├── evaluation.py         # Quality assessment
-│   └── config.py            # Configuration settings
+│   └── evaluation.py         # Quality assessment
 ├── requirements.txt         # Project dependencies
+├── config.py               # Configuration settings
 ├── app.py                  # Main execution script
+├── deliverables/           # I save the deliverable results here
 └── README.md               # Documentation
 ```
 
+## 🔧 Prerequisites
+
+- Python 3.8 or higher
+- OpenAI API key
+- For cloud features (optional):
+  - AWS credentials for S3 storage
+  - Apache Spark environment for distributed processing
+  
 ## 📂 Automated Pipeline
 
 Simply run `app.py` and StatGPT will:

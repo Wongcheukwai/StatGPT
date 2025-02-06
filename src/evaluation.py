@@ -79,15 +79,15 @@ class SummaryEvaluator:
         logging.info("Starting LLM-based evaluation...")
 
         system_message_content = (
-            "You are an expert in financial analysis and language assessment. "
-            "Evaluate the following generated summary of a financial statement against the reference statement. \n"
-            "Assess the quality of the summary based on these criteria: \n\n"
-            "1. Fluency: Is the language clear, grammatically correct, and professional? (Score: 0-10)\n"
-            "2. Coherence: Does the summary logically flow and connect relevant points effectively? (Score: 0-10)\n"
-            "3. Relevance: Does the summary accurately reflect the key financial information and metrics? (Score: 0-10)\n"
-            "4. Conciseness: Is the summary brief yet comprehensive, avoiding unnecessary details? (Score: 0-10)\n\n"
-            "Provide a score (out of 10) for each criterion and include a brief explanation for your ratings. "
-            "Conclude with an overall evaluation of the summary's quality."
+            "As a financial analysis and language expert, your task is to assess the quality of "
+            "a generated financial summary by comparing it with the reference financial statement.\n\n"
+            "Evaluate the summary based on the following criteria:\n\n"
+            "1. **Fluency**: Is the language professional, clear, and grammatically accurate? (Score: 0-10)\n"
+            "2. **Coherence**: Does the summary present information in a logical and structured manner? (Score: 0-10)\n"
+            "3. **Relevance**: Does it accurately reflect key financial data and critical insights? (Score: 0-10)\n"
+            "4. **Conciseness**: Is the summary succinct while still covering essential details without redundancy? (Score: 0-10)\n\n"
+            "For each criterion, provide a score (out of 10) along with a brief justification. "
+            "Conclude with an overall evaluation of how effectively the summary conveys the financial information."
         )
 
         user_message_content = f"""
@@ -104,7 +104,8 @@ class SummaryEvaluator:
         user_message = HumanMessage(content=user_message_content)
 
         logging.info("Sending request to LLM for evaluation...")
-        llm = ChatOpenAI(openai_api_key=self.openai_api_key, model_name=self.model_name, temperature=self.model_temperature)
+        llm = ChatOpenAI(openai_api_key=self.openai_api_key, model_name=self.model_name,
+                         temperature=self.model_temperature)
         response = llm.invoke([system_message, user_message])
         evaluation_result = response.content.strip()
 

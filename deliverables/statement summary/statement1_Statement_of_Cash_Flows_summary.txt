@@ -1,0 +1,33 @@
+### Key Financial Metrics
+
+- **Operating Activities:**
+  - Total Cash Received: Last Year $7,945,000; Previous Year $7,807,000
+  - Total Cash Used: Last Year $7,409,000; Previous Year $6,905,000
+  - Net Cash from Operating Activities: Last Year $536,000; Previous Year $902,000
+
+- **Investing Activities:**
+  - Total Cash Received: Last Year $9,000; Previous Year $56,000
+  - Total Cash Used: Last Year $10,407,000; Previous Year $156,000
+  - Net Cash from Investing Activities: Last Year -$10,398,000; Previous Year -$100,000
+
+- **Financing Activities:**
+  - Total Cash Received: Last Year $8,000,000; Previous Year $0
+  - Total Cash Used: Last Year $0; Previous Year $0
+  - Net Cash from Financing Activities: Last Year $8,000,000; Previous Year $0
+
+- **Net Increase (Decrease) in Cash Held:**
+  - Last Year: -$1,862,000; Previous Year: $802,000
+
+- **Cash and Cash Equivalents:**
+  - Beginning of Period: Last Year $4,955,000; Previous Year $4,153,000
+  - End of Period: Last Year $3,093,000; Previous Year $4,955,000
+
+### Notable Trends or Observations
+
+- There was a significant increase in cash used for investing activities, primarily due to the purchase of land and buildings, which was not present in the previous year.
+- Financing activities saw a substantial inflow from borrowings amounting to $8,000,000, which was absent in the previous year.
+- Despite increased cash inflows from financing, the net cash position decreased due to high investment outflows.
+
+### Short Narrative Summary
+
+In the last fiscal year, the company experienced a decrease in net cash from operating activities, dropping from $902,000 to $536,000, despite a slight increase in total cash received. The major financial shift occurred in investing activities, where significant expenditures on land and buildings led to a net cash outflow of $10,398,000. This was partially offset by $8,000,000 in borrowings under financing activities, marking a strategic move to support investment needs. Overall, the cash and cash equivalents at the end of the period decreased to $3,093,000, reflecting the substantial investment activities undertaken during the year.

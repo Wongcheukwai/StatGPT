@@ -54,10 +54,95 @@ The system supports **cloud scalability** through **S3 integration and PySpark s
 
 ---
 
+## GenAI Implementation Details
+
+### 1. Data Extraction with GPT-4 Vision
+```python
+def extract_text_from_images(self, images):
+    """Uses OpenAI Vision to extract text and structure from financial PDFs."""
+    img_data = [{"type": "image_url", 
+                 "image_url": {"url": self.encode_image_to_base64(img)}} 
+                for img in images]
+    
+    response = self.openai_client.chat.completions.create(
+        model="gpt-4-turbo",  # Vision-capable model
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT_PDF},
+            {"role": "user", "content": img_data}
+        ],
+        max_tokens=4096,
+        temperature=0,  # Deterministic output
+        top_p=0.1
+    )
+    return response.choices[0].message.content.strip()
+```
+
+### 2. Financial Report Generation with RAG
+```python
+def generate_financial_summary(self, key_metrics: dict, statement_name: str):
+    """Generates context-aware financial summaries using RAG."""
+    if self.use_rag:
+        raw_text = json.dumps(key_metrics, ensure_ascii=False)
+        # Split text into chunks
+        splitter = CharacterTextSplitter(separator="\n", 
+                                       chunk_size=3000, 
+                                       chunk_overlap=500)
+        chunks = splitter.split_text(raw_text)
+        
+        # Create embeddings for RAG
+        embeddings = OpenAIEmbeddings(openai_api_key=self.openai_api_key)
+        self.vector_store = Chroma.from_texts(chunks, embeddings)
+        
+    system_message = SystemMessage(
+        content="You are a financial analysis assistant. Generate a comprehensive yet concise summary."
+    )
+    user_message = HumanMessage(content=f"""
+    Generate financial summary for {statement_name}.
+    Must Include 3 sections:
+    - Key financial metrics
+    - Notable trends or observations
+    - A short narrative summary
+
+    Metrics: {json.dumps(key_metrics, indent=2)}
+    Context: {self.retrieve_financial_data(f"Generate insights for {statement_name}")}
+    """)
+
+    llm = ChatOpenAI(model_name="gpt-4-turbo", temperature=0)
+    return llm.invoke([system_message, user_message]).content
+```
+
+### 3. Quality Evaluation Pipeline
+```python
+def evaluate_summary(self, summary_text: str, reference_text: str) -> str:
+    """Evaluates generated summaries using LLM-based assessment."""
+    system_message = SystemMessage(content="""
+    You are an expert in financial analysis and language assessment.
+    Evaluate the following generated summary based on:
+    1. Fluency (0-10): Clarity, grammar, and professional tone
+    2. Coherence (0-10): Logical flow and connection of ideas
+    3. Relevance (0-10): Accuracy of financial information
+    4. Conciseness (0-10): Comprehensive yet brief
+    Provide scores and brief explanations.
+    """)
+    
+    user_message = HumanMessage(content=f"""
+    --- Generated Summary ---
+    {summary_text}
+
+    --- Reference Financial Statement ---
+    {reference_text}
+
+    Evaluate the summary based on the criteria provided above.
+    """)
+
+    llm = ChatOpenAI(model_name="gpt-4-turbo", temperature=0)
+    return llm.invoke([system_message, user_message]).content
+```
+
 ## Scalability Considerations
 
 **Challenge:** The system must efficiently handle multiple financial statements while ensuring stability and performance in production environments.
-
+    
 **Solution:**
 - **Batch Processing for PDFs:** Implemented a pipeline that processes multiple PDFs sequentially, ensuring efficient execution without overwhelming API limits.
 - **Cloud Storage Integration:** The extracted and processed data can be stored in **AWS S3**, enabling easy access for distributed processing.
@@ -69,4 +154,3 @@ The system supports **cloud scalability** through **S3 integration and PySpark s
 
 ## Conclusion
 StatGPT successfully automates financial statement analysis using **LLM-powered extraction, RAG-based contextualization, and structured report generation**. The system is designed to scale efficiently while maintaining high accuracy in financial metric extraction and summary generation. Future improvements include **fine-tuning models on domain-specific financial data**, **enhancing evaluation metrics for financial accuracy validation**, and **expanding cloud-based deployment strategies for large-scale adoption**.
-

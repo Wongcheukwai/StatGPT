@@ -1,0 +1,31 @@
+### Key Financial Metrics
+- **Revenue:**
+  - Membership subscriptions increased from $6,571,000 to $6,748,000.
+  - Interest income rose from $231,000 to $251,000.
+  - Rental income decreased from $244,000 to $185,000.
+  - Other revenue declined from $655,000 to $613,000.
+  - **Total Revenue** increased slightly from $7,701,000 to $7,797,000.
+
+- **Expenses:**
+  - Employee expenses increased from $3,023,000 to $3,167,000.
+  - Capitation fees rose slightly from $823,000 to $830,000.
+  - Affiliation fees decreased marginally from $231,000 to $228,000.
+  - Depreciation increased from $88,000 to $97,000.
+  - Administration expenses rose significantly from $1,475,000 to $1,649,000.
+  - Legal costs surged from $62,000 to $296,000.
+  - Donations decreased from $120,000 to $77,000.
+  - Motor vehicle expenses increased from $79,000 to $89,000.
+  - Other expenses rose from $775,000 to $835,000.
+  - **Total Expenses** increased from $6,676,000 to $7,268,000.
+
+- **Surplus (Deficit) for the Year:** Decreased from $1,025,000 to $529,000.
+- **Other Comprehensive Income:** No gain on revaluation of investment property this year, compared to $342,000 last year.
+- **Total Comprehensive Income for the Year:** Decreased from $1,367,000 to $529,000.
+
+### Notable Trends or Observations
+- Revenue growth was modest, primarily driven by an increase in membership subscriptions and interest income, despite declines in rental and other revenue.
+- Expenses saw a notable increase, particularly in legal costs and administration expenses, which significantly impacted the overall surplus.
+- The absence of gains from investment property revaluation this year contributed to a lower total comprehensive income compared to the previous year.
+
+### Narrative Summary
+The financial performance for the year shows a slight increase in total revenue, primarily due to higher membership subscriptions and interest income. However, this was offset by a significant rise in expenses, especially in legal and administration costs, leading to a reduced surplus. The absence of gains from investment property revaluation further impacted the total comprehensive income, resulting in a notable decrease compared to the previous year. Overall, while revenue streams remain stable, cost management appears to be a critical area for improvement to enhance future financial outcomes.
