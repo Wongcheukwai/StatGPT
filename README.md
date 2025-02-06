@@ -47,7 +47,7 @@ StatGPT/
 
 ## 🔧 Prerequisites
 
-- Python 3.8 or higher
+- Python 3.10
 - OpenAI API key
 - For cloud features (optional):
   - AWS credentials for S3 storage
