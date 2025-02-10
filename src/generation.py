@@ -27,6 +27,8 @@ from langchain.output_parsers import StructuredOutputParser, ResponseSchema
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import Chroma
 from typing import Any, List, Optional, Union
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+
 from config import (
     OPENAI_API_KEY,
     MODEL_NAME_REPORT,
@@ -128,14 +130,31 @@ class Reports:
             input_data)
 
         # Split text into chunks
-        splitter = CharacterTextSplitter(separator="\n", chunk_size=3000, chunk_overlap=500)
-        chunks = splitter.split_text(raw_text)
+        # splitter = CharacterTextSplitter(separator="\n", chunk_size=100, chunk_overlap=20)
+        # chunks = splitter.split_text(raw_text)
+        # logging.info(f"Created {len(chunks)} chunks from input data.")
+        splitter = RecursiveCharacterTextSplitter(chunk_size=100, chunk_overlap=20)
+        chunks = splitter.split_text(json.dumps(input_data, ensure_ascii=False, indent=2))  # Indent increases newlines
         logging.info(f"Created {len(chunks)} chunks from input data.")
-
         # Create embeddings
         embeddings = OpenAIEmbeddings(openai_api_key=self.openai_api_key)
         self.vector_store = Chroma.from_texts(chunks, embeddings)
         logging.info("Vector store built successfully.")
+
+    def retrieve_financial_data(self, query: str) -> str:
+        """Retrieves relevant financial data from the vector store."""
+        if not self.use_rag or not self.vector_store:
+            return ""
+
+        logging.info(f"Retrieving financial context for query: {query}")
+        try:
+            results = self.vector_store.similarity_search(query, k=3)
+            retrieved_texts = "\n\n".join([r.page_content for r in results])
+            logging.info("Successfully retrieved financial context.")
+            return retrieved_texts
+        except Exception as e:
+            logging.error(f"Error retrieving financial context: {e}")
+            return ""
 
     def process_all_reports(self):
         """
@@ -155,6 +174,7 @@ class Reports:
                 if self.use_rag:
                     logging.info(f"Building vector store for {file_name}...")
                     self.build_vector_store(json_data)
+                    logging.info(f"Vector store contains {self.vector_store._collection.count()} documents")
 
                 for statement_name, statement_data in json_data.items():
                     # Modify summary naming convention to ensure evaluation finds the correct JSON and statement
@@ -188,7 +208,7 @@ class Reports:
         financial_context = ""
         if self.use_rag:
             financial_context = self.retrieve_financial_data(f"Generate insights for {statement_name}")
-
+        print(financial_context)
         system_message = SystemMessage(
             content="You are a financial analysis assistant. Summarize the provided key metrics concisely.")
         user_message = HumanMessage(content=f"""

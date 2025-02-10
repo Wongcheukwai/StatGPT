@@ -28,9 +28,7 @@ PROCESSED_DATA_FOLDER = os.environ.get("PROCESSED_DATA_FOLDER", "./processed_dat
 
 REPORT_FOLDER = os.environ.get("REPORT_FOLDER", "./generated_data")
 # API key for accessing OpenAI services.
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
-
-# ------------------------------------------------------------------------------
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "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")# ------------------------------------------------------------------------------
 # Data Extraction Settings
 # ------------------------------------------------------------------------------
 # Model for extracting text from PDF images.
@@ -91,7 +89,7 @@ CHUNK_SIZE_REPORT = int(os.environ.get("CHUNK_SIZE_REPORT", 3000))
 CHUNK_OVERLAP_REPORT = int(os.environ.get("CHUNK_OVERLAP_REPORT", 500))
 
 # Enable or disable RAG for financial report generation
-USE_RAG = os.environ.get("USE_RAG", "False").lower() == "true"
+USE_RAG = os.environ.get("USE_RAG", "True").lower() == "true"
 
 # ------------------------------------------------------------------------------
 # Evaluation Settings
